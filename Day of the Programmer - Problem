@@ -1,0 +1,140 @@
+#include<iostream>
+
+#include<string>
+
+using namespace std;
+
+int
+main() {
+
+  int year = 1918;
+
+  int months[12] = {
+    31,
+    28,
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31
+  };
+
+  int leapmonths[12] = {
+    31,
+    29,
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31
+  };
+
+  int sum = 0, i = 0;
+
+  string str;
+
+  if (year == 1918) {
+
+    while (sum < 256) {
+
+      sum += months[i];
+
+      i++;
+
+    }
+
+    sum = sum - months[i - 1];
+
+    sum = (256 - sum) + 13;
+
+    str = to_string(sum) + '.' + to_string(i) + '.' + to_string(year);
+
+  } else if (year > 1918) {
+
+    if ((year % 100 != 0 && year % 4 == 0) || year % 400 == 0) {
+
+      while (sum <= 256) {
+
+        sum += leapmonths[i];
+
+        i++;
+
+      }
+
+      sum = sum - leapmonths[i - 1];
+
+      sum = 256 - sum;
+
+    } else {
+
+      while (sum < 256) {
+
+        sum += months[i];
+
+        i++;
+
+      }
+
+      sum = sum - months[i - 1];
+
+      sum = 256 - sum;
+
+    }
+
+    str =
+      to_string(sum) + '.' + to_string(0) + to_string(i) + '.' +
+      to_string(year);
+
+  } else if (year < 1918) {
+
+    if (year % 4 == 0) {
+
+      while (sum <= 256) {
+
+        sum += leapmonths[i];
+
+        i++;
+
+      }
+
+      sum = sum - leapmonths[i - 1];
+
+      sum = 256 - sum;
+
+    } else {
+
+      while (sum < 256) {
+
+        sum += months[i];
+
+        i++;
+
+      }
+
+      sum = sum - months[i - 1];
+
+      sum = 256 - sum;
+
+    }
+
+  }
+
+  str =
+    to_string(sum) + '.' + to_string(0) + to_string(i) + '.' +
+    to_string(year);
+
+  cout << str;
+
+  return 0;
+
+}
