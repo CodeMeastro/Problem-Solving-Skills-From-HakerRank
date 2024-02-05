@@ -1,0 +1,81 @@
+#include<iostream>
+#include<string>
+#include<vector>
+using namespace std;
+
+int main ()
+{
+
+//Vectors to store oncoming values
+  vector < int >arrr;
+  vector < int >num;
+  vector < int >indexValue;
+
+//Variables declaration
+  int size = 6, count = 0, val = 0, maxNum = 0, minVal = 0, increment =
+	0, previous = -2300;
+
+// Dynamic Allocation of memory
+  int *arr = new int[size];
+
+//Getting How many times a number is repeated in array
+  for (int i = 0; i < size; i++)
+	{
+	  count = 0;
+	  val = arr[i];
+	  if (arr[i] != previous)
+		{
+		  for (int j = 0; j < size; j++)
+			{
+			  if (arr[j] == val)
+				{
+				  count++;
+				}
+			}
+
+		  //Values are entering to vector type arrray
+		  num.push_back (count);
+		  indexValue.push_back (val);
+		  increment++;
+		}
+	  previous = val;
+	}
+
+//Reinitializing varabales
+  count = 0;
+  maxNum = num[0];
+
+//Getting maximum value from array
+  for (int i = 0; i < increment; i++)
+	{
+	  if (num[i] > maxNum)
+		{
+		  maxNum = num[i];
+		}
+	}
+
+//Storing maximum times repeated elements in another array
+  for (int i = 0; i < increment; i++)
+	{
+	  if (num[i] == maxNum)
+		{
+		  arrr.push_back (indexValue[i]);
+		  count++;
+		}
+	}
+
+
+// Getting minimum number, repeated maximum times in array
+  minVal = arrr[0];
+  for (int i = 0; i < count; i++)
+	{
+	  if (arrr[i] < minVal)
+		{
+		  minVal = arrr[i];
+		}
+	}
+
+  cout << "Number repeatwd maximum times having lower value: " << minVal;
+
+  return 0;
+}
