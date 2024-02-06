@@ -12,3 +12,15 @@ This problem got my almost whole day. In this I did :
 1) How to use arrays
 2) How to handle with years ,days, and months
 3) How to set up logic, this is main thing I learnt from this 
+
+#3 Sales by match:
+Problem Statement:
+There is a large pile of socks that must be paired by color. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are.
+
+solved:
+I got stuck on this problem for more than 1 hour , just crazed in the complex logic I designed
+
+In this problem I used arrays!!
+1) First I find element if it repeats twice than increment the count
+2) Next I removed that element from the array so that if third element of same type appears it will have to be count
+3) Thus if element exists thrice or more, it will be considered by removing the previous same elements from array 
