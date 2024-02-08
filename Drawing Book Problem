@@ -1,0 +1,76 @@
+#include<iostream>
+#include<string>
+#include<cmath>
+using namespace std;
+
+int main() {
+	int n = 5, p = 4;
+    p = p + 1;
+    int p1 = p - 1;
+    n = n + 1;
+    int n1 = n - 1;
+
+    int pagesTurn = 0, count = 0;
+    for (int j = 0; j < n1; j++) {
+        if (j != p1) {
+            cout << "Not" << endl;
+            count++;
+            if (count == 2) {
+                cout << "Turning" << endl;
+                pagesTurn++;
+            }
+        }
+        if (j == p1) {
+            break;
+        }
+        if (count == 2) {
+            count = 0;
+        }
+    }
+    count = 0; int pagesTurn1 = 0;
+    if (n % 2 != 0) {
+        for (int j = n; j > 0; j--) {
+            if ((j != p) && (j == n)) {
+                cout << "kkk" << endl;
+                pagesTurn1++;
+            }
+            else if (j != p) {
+                count++;
+                cout << "lll" << endl;
+                if (count == 2) {
+                    pagesTurn1++;
+                    cout << "kkkk" << endl;
+                }
+            }
+            if (j == p) {
+                cout << "mmm" << endl;
+                break;
+            }
+            if (count == 2) {
+                count = 0;
+            }
+        }
+    }
+    else {
+        for (int j = n; j > 0; j--) {
+            if (j != p) {
+                count++;
+                if (count == 2) {
+                    pagesTurn1++;
+                }
+            }
+            if (j == p) {
+                break;
+            }
+            if (count == 2) {
+                count = 0;
+            }
+        }
+    }
+    if (pagesTurn < pagesTurn1) {
+       cout<<pagesTurn;
+    }
+    else
+        cout<<pagesTurn1;
+    return 0;
+}
