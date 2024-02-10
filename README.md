@@ -1,19 +1,19 @@
 Here I am uploading files whenever I solved any algorithms:
 
-#1) Maximum Times Repeated Minimum Element From Array:
+# Maximum Times Repeated Minimum Element From Array:
 1) How to draw login, Implementation and perfection
 2) How to treat with arrays
 3) How to count maximum times repeated element
 4) How to find minimum times repeated element 
 5) How to find highest & lowest value element
 
-#2) Programmer of the day:
+# Programmer of the day:
 This problem got my almost whole day. In this I did :
 1) How to use arrays
 2) How to handle with years ,days, and months
 3) How to set up logic, this is main thing I learnt from this 
 
-#3) Sales by match:
+# Sales by match:
 Problem Statement:
 There is a large pile of socks that must be paired by color. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are.
 But,
@@ -24,13 +24,13 @@ In this problem I used arrays!!
 2) Next I removed that element from the array so that if third element of same type appears it will have to be count
 3) Thus if element exists thrice or more, it will be considered by removing the previous same elements from array
 
-#4) Bill Division problem:
+# Bill Division problem:
 Problem Statement:
 Two friends Anna and Brian, are deciding how to split the bill at a dinner. Each will only pay for the items they consume. Brian gets the check and calculates Anna's portion. You must determine if his calculation is correct.
 
 Here I used arrays also this task was very easy for me
 
-#5) Drawing Book Problem
+# Drawing Book Problem
 This problem got my a lot of time , it was very difficult to build my logic for this, but I solved.
 
 I learnt:
