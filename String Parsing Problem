@@ -1,0 +1,54 @@
+#include <cmath>
+#include <string>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    string a;
+    int i=0, j=0,h=0;
+    vector<int> array;
+
+    cin.getline(a);
+    
+    
+    while(i < a.length()){
+        
+        if(a[i] == ','){
+            
+            array.push_back(i+1);
+            
+        }
+        
+        i++;
+    }
+    
+    for(int i=0 ; i<array.size() ; i++){
+        
+        cout<<array[i]<<"  ";
+        
+    }
+    
+    int size = array.size();
+    string *arr = new string[size+1];
+    
+    while( j < size ){
+        
+        if(j == 0 ){
+            h=0;
+        }
+        
+        arr[j] =  a.substr(h,(array[j] - h-1)); 
+        h = array[j];
+        j++;
+    }
+    
+    arr[size] =  a.substr(h,('\0')-1); 
+    
+    for( int i=0;i<size+2;i++){
+        cout<<arr[i]<<endl;
+    }
+    return 0;
+}
