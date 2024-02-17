@@ -1,0 +1,80 @@
+#include <cmath>
+#include <string>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class Student;
+istream & operator >> (istream&, Student&);
+ostream & operator << (ostream&, const Student&);
+
+class Student{
+    int age;
+    string first_name;
+    string last_name;
+    int standard;
+    public:
+    Student(){
+        age = 0;
+        first_name="";
+        last_name="";
+        standard=0;
+    }
+    void setAge(int a){
+        age =a;
+    }
+    int getAge() const{
+        return age;
+    }
+    void setFirst(string a){
+        first_name =a;
+    }
+    string getfirst() const{
+        return first_name;
+    }
+    void setlast(string a){
+        last_name =a;
+    }
+    string getlast() const{
+        return last_name;
+    }
+    void setstandard(int a){
+        standard =a;
+    }
+    int getstandard() const{
+        return standard;
+    }
+    string to_str(){
+        string abc = to_string(age)+","+first_name+","+last_name+","+to_string(standard);
+        return abc;
+    }
+    friend istream & operator >> (istream&, Student&);
+    friend ostream & operator << (ostream&, const Student&);
+
+};
+
+istream & operator >> (istream&in, Student& s)
+{
+    in>>s.age;
+    in>>s.first_name;
+    in>>s.last_name;
+    in>>s.standard;
+    return in;
+}
+
+ostream & operator << (ostream&out, const Student&s){
+    out<<s.age<<endl;
+    out<<s.last_name<<", "<<s.first_name<<endl;
+    out<<s.standard<<endl;
+    cout<<endl;
+    return out;
+}
+
+int main() {
+    Student s;
+    cin>>s;
+    cout<<s;
+    cout<<s.to_str();
+    return 0;
+}
