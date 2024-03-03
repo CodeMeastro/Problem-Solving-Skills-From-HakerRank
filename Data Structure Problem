@@ -1,0 +1,59 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+void printKMax(int arr[], int n, int k){
+    int j=0,i=0,count=0,increment=0,max=0;
+    
+    while(i+k-1<n){
+        count++;
+        i++;
+    }
+    cout<<count<<endl;
+    int temp=0;
+    int** a = new int*[count];
+    int* b = new int[count];
+    for(int i=0;i<count;i++){
+        a[i] = new int[k];
+        increment=k;
+        temp=i;
+        while(increment>0){
+           a[i][k-increment]=arr[temp]; 
+           increment--;
+           temp++;
+        }
+        max=0;
+        for(int j=0;j<k;j++){
+        if(a[i][j]>max){
+            max = a[i][j];
+        }
+        }
+        b[i]= max;
+    }
+
+    for(int i=0;i<count;i++){
+        cout<<b[i]<<" ";
+    }
+    cout<<endl;
+    for (int i = 0; i < count; i++) {
+        delete[] a[i];
+    }
+    delete[] a;
+}
+
+int main(){
+  
+	int t;
+	cin >> t;
+	while(t>0) {
+		int n,k;
+    	cin >> n >> k;
+    	int i;
+    	int arr[n];
+    	for(i=0;i<n;i++)
+      		cin >> arr[i];
+    	printKMax(arr, n, k);
+    	t--;
+  	}
+  	return 0;
+}
