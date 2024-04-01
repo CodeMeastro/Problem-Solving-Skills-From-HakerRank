@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    int n, q;
+    std::cin >> n;
+    std::vector<int> array(n);
+    
+    for (int i = 0; i < n; ++i) {
+        std::cin >> array[i];
+    }
+    
+    std::cin >> q;
+    std::vector<int> arr(q);
+    
+    for (int i = 0; i < q; ++i) {
+        std::cin >> arr[i];
+    }
+    
+    for (int i = 0; i < q; ++i) {
+        bool found = false;
+        for (int j = 0; j < n; ++j) {
+            if (arr[i] == array[j]) {
+                std::cout << "Yes " << j + 1 << std::endl;
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            std::vector<int> maxes;
+            for (int j = 0; j < n; ++j) {
+                if (array[j] > arr[i]) {
+                    maxes.push_back(array[j]);
+                }
+            }
+            if (!maxes.empty()) {
+                int min = *min_element(maxes.begin(), maxes.end());
+                auto it = std::find(array.begin(), array.end(), min);
+                std::cout << "No " << it - array.begin() + 1 << std::endl;
+            } else {
+                std::cout << "No -1" << std::endl;
+            }
+        }
+    }
+    
+    return 0;
+}
+
+
