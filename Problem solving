@@ -1,0 +1,32 @@
+#include <iostream>
+#include <set>
+
+int main() {
+    std::set<int> Q;
+    int n, query, num;
+    std::set<int>::iterator itr;
+
+    std::cin >> n;
+
+    for (int i = 0; i < n; ++i) {
+        std::cin >> query >> num;
+
+        if (query == 1) {
+            Q.insert(num);
+        } else if (query == 2) {
+            itr = Q.find(num);
+            if (itr != Q.end()) {
+                Q.erase(itr);
+            }
+        } else if (query == 3) {
+            itr = Q.find(num);
+            if (itr != Q.end()) {
+                std::cout << "Yes" << std::endl;
+            } else {
+                std::cout << "No" << std::endl;
+            }
+        }
+    }
+
+    return 0;
+}
